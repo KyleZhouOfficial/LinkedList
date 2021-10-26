@@ -1,0 +1,33 @@
+#include "Node.h"
+
+#include <cstring>
+
+using namespace std;
+
+Node::Node(){
+
+}
+
+Node::Node(Student* s){
+  strcpy(student->firstName,s->getFirst());
+  strcpy(student->lastName, s->getLast());
+  student->id = s->getId();
+  student->gpa = s->getGpa();
+}
+
+Node::~Node(){
+  delete student;
+  next = NULL;
+}
+
+Student* Node::getStudent(){
+  return student;
+}
+
+Node* Node::getNext(){
+  return next;
+}
+
+void Node::setNext(Node* node){
+  next = node;
+}
